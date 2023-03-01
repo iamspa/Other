@@ -1,5 +1,6 @@
 #!/bin/bash
     # Automatically Updates System Time According to the NIST Atomic Clock in a Linux Environment
+    # Credit To Syifa Saif Hidayat Link https://www.youtube.com/watch?v=h1eyHaE-lXg
     nistTime=$(curl -I --insecure 'time.windows.com' | grep "ate:")
     echo $nistTime
     dateString=$(echo $nistTime | cut -d' ' -f2-7)
