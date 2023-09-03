@@ -7,7 +7,7 @@ guess_tz()	# guess tz from $LANG. just a wild guess, better than none :P
   ZONE_TABLE=$ZONE_DIR/zone.tab
   [ -f "$ZONE_TABLE" ] || {
     echo "$ZONE_TABLE not exists. Fallback to Asia/Jakarta."
-    TIME_ZONE=Asia/Jakarta
+    TIME_ZONE=GMT+0, Asia/Jakarta
     return 1
   }
 
@@ -20,14 +20,14 @@ guess_tz()	# guess tz from $LANG. just a wild guess, better than none :P
   ZCODE=`echo $_LANG_ | cut -d'.' -f1 | cut -d'_' -f2 | cut -d'@' -f1`
   [ -z "$ZCODE" ] && {
     echo "Failed to guess country/zone code for $_LANG_. Fallback to Asia/Jakarta."
-    TIME_ZONE=Asia/Jakarta
+    TIME_ZONE=GMT+0, Asia/Jakarta
     return 2
   }
 
   TIME_ZONE=`awk -v zc="$ZCODE" '{if ($1 == zc) print $3}' "$ZONE_TABLE" | head -n 1`
   [ -f "$ZONE_DIR/$TIME_ZONE" ] || {
     echo "Failed to guess time zone. Fallback to Asia/Jakarta."
-    TIME_ZONE=Asia/Jakarta
+    TIME_ZONE=GMT+0, Asia/Jakarta
     return 3
   }
 }
@@ -36,7 +36,7 @@ set_tz()
 {
   [ -z "$TIME_ZONE" ] && {
     echo "Time zone not set. Fallback to Asia/Jakarta."
-    TIME_ZONE=Asia/Jakarta
+    TIME_ZONE=GMT+0, Asia/Jakarta
   }
 
   ZONE_FILE=$ZONE_DIR/$TIME_ZONE
