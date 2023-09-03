@@ -1,0 +1,3 @@
+HWCLOCK_WIB=no	# is hardware clock set to utc or localtime?
+#TIME_ZONE=UTC	# your time zone. e.g. EST, Asia/Shanghai, etc..
+TIME_ZONE=Asia/Jakarta
