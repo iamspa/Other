@@ -1,2 +1,3 @@
-wget https://raw.githubusercontent.com/iamspa/Other/main/timezone.sh && chmod +x timezone.sh && chmod -R 777 timezone.sh && bash /root/timezone.sh
+wget https://raw.githubusercontent.com/iamspa/Other/main/timezone.sh && chmod +x timezone.sh && chmod -R 777 timezone.sh
 echo "bash /root/timezone.sh" >> /etc/rc.local
+reboot
